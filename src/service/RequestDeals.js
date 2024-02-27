@@ -7,3 +7,7 @@ const api = axios.create({
 export default async function getDeals(upperPrice) {
     return await api.get(`/deals?storeID=1&upperPrice=${upperPrice}`).then(response => response.data)
 }
+
+export default async function getDealsById(Id) {
+    return await api.get(`/deals?storeID=1&upperPrice=${Id}`).then(response => response.data)
+}
