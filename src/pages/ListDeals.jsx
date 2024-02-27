@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react"
-import { getDeals } from "../service/RequestGames"
+import getDeals from "../service/RequestDeals"
+import { ClipLoader } from "react-spinners"
+import { key } from "localforage"
+import CardDeals from "../components/CardDeals"
 
 
-export default function ListDeals(){
-    const upperPrice = useState(15)
+export default function ListDeals() {
+    const [upperPrice, setUpperPrice] = useState(15)
     const [games, setGames] = useState([])
 
     const requestDeals = () => {
-        console.log("Teste2")
         getDeals(upperPrice)
             .then(response => setGames(response))
             .catch(error => console.error(error))
-
-            console.log("Teste3")
     }
 
-    useEffect(()=>{
-        console.log("Teste");
+    useEffect(() => {
         requestDeals()
-    },[])
+    }, [])
 
     console.log(games);
 
-    return(
-        <div className="listGames">
-            <h2>Lista de Ofertas</h2>
+    return (
+        <div className="listDeals">
+            {games.length > 0 ?
+                games.map((deals) => (
+                    <CardDeals key={games.dealID} deals={deals} />
+                ))
+                : <ClipLoader />}
         </div>
     )
 }
