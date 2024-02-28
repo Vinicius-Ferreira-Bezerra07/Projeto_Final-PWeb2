@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import getDeals from "../service/RequestDeals"
+import { getDeals } from "../service/RequestDeals"
 import { ClipLoader } from "react-spinners"
-import { key } from "localforage"
 import CardDeals from "../components/CardDeals"
 
 
@@ -18,8 +17,6 @@ export default function ListDeals() {
     useEffect(() => {
         requestDeals()
     }, [])
-
-    console.log(games);
 
     return (
         <div className="listDeals">
