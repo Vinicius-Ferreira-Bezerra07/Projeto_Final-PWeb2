@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "../pages/Home"
-import ListDeals from "../pages/ListDeals"
-import { InfoGames } from "../pages/InfoGames"
+import Home from "../pages/home/Home"
+import ListDeals from "../pages/listDeals/ListDeals"
+import { InfoGames } from "../pages/infoGames/InfoGames"
 
 export default function AppRouter(){
     return(
