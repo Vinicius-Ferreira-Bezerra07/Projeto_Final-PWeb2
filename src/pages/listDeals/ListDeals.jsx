@@ -22,7 +22,7 @@ export default function ListDeals() {
         <div className="listDeals">
             {games.length > 0 ?
                 games.map((deals) => (
-                    <CardDeals key={games.dealID} deals={deals}/>
+                    <CardDeals key={games.steamAppID} deals={deals}/>
                 ))
                 : <ClipLoader />}
         </div>
