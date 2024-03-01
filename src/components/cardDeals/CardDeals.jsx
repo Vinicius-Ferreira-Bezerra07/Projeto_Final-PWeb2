@@ -10,7 +10,7 @@ export default function CardDeals({ deals }) {
                     <img className='thumbGame' src={deals.thumb}/>
                 </Link>
                 <p>Nota Meta Critic: {deals.metacriticScore}</p>
-                <p>Pntuação da Oferta: {deals.dealRating}</p>
+                <p>Pontuação da Oferta: {deals.dealRating}</p>
                 <p>Preço da Oferta: ${deals.salePrice}</p>
                 <p>Preço normal: ${deals.normalPrice}</p>
             </div>
