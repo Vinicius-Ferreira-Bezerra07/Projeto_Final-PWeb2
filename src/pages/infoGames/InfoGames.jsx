@@ -4,62 +4,51 @@ import { getGameID } from "../../service/RequestDeals"
 import { CardGameSelect } from "../../components/CardGameSelect/CardGameSelect"
 import CardDeals from "../../components/cardDeals/CardDeals"
 import { ClipLoader } from "react-spinners"
+import { CardStores } from "../../components/CardStores/CardStores"
+import { CardRelatedGames } from "../../components/CardRelatedGames/CardRelatedGames"
 
 export function InfoGames(props){
     const { gameID } = useParams()
-<<<<<<< HEAD
+    const [info, setInfo] = useState()
+    const [cheapestPrice, setCheapestPrice] = useState()
     const [gameDeals, setGameDeals] = useState([])
     const [gameSelect, setGameSelect] = useState([])
-=======
+    const [relatedGames, setRelatedGames] = useState([])
+
     const [gameSelectSteam, setGameSelectSteam] = useState([])
->>>>>>> 55d81c4a56cc6f9620f4c883caa123172f970c11
 
     const getGame = () => {
         getGameID(gameID)
-<<<<<<< HEAD
-            .then(response => response.map((deals) => {
+            .then(response => {
+                setInfo(response.info)
+                setCheapestPrice(response.cheapestPriceEver)
+                response.deals.map((deals) => {
                 if(deals.storeID == 1){
                     setGameSelect(deals)
                 }
-                setGameDeals(response)
-            }))
-=======
-            .then(response => setGameSelectSteam(response))
->>>>>>> 55d81c4a56cc6f9620f4c883caa123172f970c11
+                setGameDeals(response.deals)
+            })})
             .catch(error => console.error(error))
     }
-
-    // setGameDeals(response)
-
-    // useEffect(() => {
-    //     gameDeals.deals.map((x) => {
-    //         if (x.storeID == 1) {
-    //             setGameSelect(x)
-    //             console.log(x);
-    //         }
-    //     })
-    // },[gameDeals])
 
     useEffect(() => {
         getGame()
     },[])
 
-<<<<<<< HEAD
     // console.log("1", gameDeals)
     // console.log("2", gameSelect);
+    // console.log(info);
+    // console.log(cheapestPrice);
 
     return(
         <div>
-            {CardDeals.length > 0 ?
-                <CardGameSelect/>
+            {gameDeals.length > 0 ?
+                <>
+                    <CardStores deals={gameDeals}/>
+                    <CardGameSelect info={info} gameSelect={gameSelect}/>
+                    <CardRelatedGames/>
+                </>
                 : <ClipLoader/>}
-=======
-    console.log(gameSelectSteam);
-
-    return(
-        <div className="infogame">
-            <h1>teste</h1>
->>>>>>> 55d81c4a56cc6f9620f4c883caa123172f970c11
         </div>
     )
 }

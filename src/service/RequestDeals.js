@@ -9,5 +9,9 @@ export async function getDeals(upperPrice) {
 }
 
 export async function getGameID(id) {
-    return await api.get(`/games?id=${id}`).then(response => response.data.deals)
+    return await api.get(`/games?id=${id}`).then(response => response.data)
+}
+
+export async function getStores() {
+    return await api.get(`stores`).then(response => response.data)
 }
