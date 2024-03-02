@@ -9,17 +9,15 @@ export function CardStores({deals}){
             .then(response => setStores(response))
     },[])
 
-    
+
 
     console.log(stores)
-    // console.log(deals);
+    console.log(deals);
 
     return(
         <div >
             {deals.map(x => {
-                if(x == stores.storeID){
-
-                }
+                
             })}
         </div>
     )
