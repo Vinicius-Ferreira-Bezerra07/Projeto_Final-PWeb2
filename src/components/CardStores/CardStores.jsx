@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react"
-import { getStores } from "../../service/RequestDeals"
-
-export function CardStores({deals}){
-    const [stores, setStores] = useState([])
-
-    useEffect(()=>{
-        getStores()
-            .then(response => setStores(response))
-    },[])
-
-
+export function CardStores({deals, stores}){
 
     console.log(stores)
-    console.log(deals);
+    // console.log(deals);
 
     return(
-        <div >
-            {deals.map(x => {
-                
-            })}
-        </div>
+        <>
+            {stores.map((x) => (
+                <h1>t</h1>
+            ))}
+        </>
     )
 }
