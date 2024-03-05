@@ -6,6 +6,7 @@ import { getStores } from "../../service/RequestDeals"
 import { ClipLoader } from "react-spinners"
 import { CardStores } from "../../components/CardStores/CardStores"
 import { CardRelatedGames } from "../../components/CardRelatedGames/CardRelatedGames"
+import "./infoGames.css"
 
 export function InfoGames(props){
     const { gameID } = useParams()
@@ -39,7 +40,7 @@ export function InfoGames(props){
         getGame()
     },[])
 
-    console.log("1", gameDeals)
+    // console.log("1", gameDeals)
     // console.log("2", gameSelect);
     // console.log(info);
     // console.log(cheapestPrice);
@@ -49,7 +50,7 @@ export function InfoGames(props){
             {gameDeals.length > 0 ?
                 <>
                     {gameDeals.map((deals) => (
-                        <CardStores key={deals.storeID} deals={deals} stores={stores}/>
+                        <CardStores className="altDeals" key={deals.storeID} deals={deals} stores={stores}/>
                     ))}
                     <CardGameSelect info={info} gameSelect={gameSelect}/>
                     <CardRelatedGames/>
