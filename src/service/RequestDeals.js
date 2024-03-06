@@ -15,3 +15,7 @@ export async function getGameID(id) {
 export async function getStores() {
     return await api.get(`stores`).then(response => response.data)
 }
+
+export async function getGamesByName(name){
+    return await api.get(`games?title=${name}`).then(response => response.data)
+}
