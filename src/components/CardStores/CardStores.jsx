@@ -14,15 +14,15 @@ export function CardStores({deals, stores}){
     },[])
 
     // console.log(stores)
-    console.log(deals);
+    // console.log(deals);
     // console.log(store);
 
     return(
-        <div className="">
+        <div className="altDeals">
             {store != undefined ? 
                 <>
-                    <img className="banner" src={`https://www.cheapshark.com${store?.images.banner}`}/>
-                    <img className="logo" src={`https://www.cheapshark.com${store?.images.logo}`}/>
+                    {/* <img className="banner" src={`https://www.cheapshark.com${store?.images.banner}`}/> */}
+                    {/* <img className="logo" src={`https://www.cheapshark.com${store?.images.logo}`}/> */}
                     <img className="icon" src={`https://www.cheapshark.com${store?.images.icon}`}/>
                     <p>Preço: {deals.price}</p>
                 </>

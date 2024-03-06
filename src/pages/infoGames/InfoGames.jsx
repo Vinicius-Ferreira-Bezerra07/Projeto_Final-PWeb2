@@ -46,14 +46,14 @@ export function InfoGames(props){
     // console.log(cheapestPrice);
 
     return(
-        <div>
+        <div className="infogame">
             {gameDeals.length > 0 ?
                 <>
                     {gameDeals.map((deals) => (
                         <CardStores className="altDeals" key={deals.storeID} deals={deals} stores={stores}/>
                     ))}
                     <CardGameSelect info={info} gameSelect={gameSelect}/>
-                    <CardRelatedGames/>
+                    <CardRelatedGames title={info.title}/>
                 </>
                 : <ClipLoader/>}
         </div>
