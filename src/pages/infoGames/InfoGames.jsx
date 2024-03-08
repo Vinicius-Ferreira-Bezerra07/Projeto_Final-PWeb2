@@ -6,6 +6,7 @@ import { getStores } from "../../service/RequestDeals"
 import { ClipLoader } from "react-spinners"
 import { CardStores } from "../../components/CardStores/CardStores"
 import { CardRelatedGames } from "../../components/CardRelatedGames/CardRelatedGames"
+import { NavBar } from "../../components/NavBar/NavBar"
 import "./infoGames.css"
 
 export function InfoGames(props){
@@ -49,9 +50,12 @@ export function InfoGames(props){
         <div className="infogame">
             {gameDeals.length > 0 ?
                 <>
-                    {gameDeals.map((deals) => (
-                        <CardStores className="altDeals" key={deals.storeID} deals={deals} stores={stores}/>
-                    ))}
+                    <NavBar/>
+                    <div className="cardStores">
+                        {gameDeals.map((deals) => (
+                        <CardStores className="" key={deals.storeID} deals={deals} stores={stores}/>
+                        ))}
+                    </div>
                     <CardGameSelect info={info} gameSelect={gameSelect}/>
                     <CardRelatedGames title={info.title}/>
                 </>

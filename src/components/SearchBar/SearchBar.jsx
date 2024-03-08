@@ -11,7 +11,7 @@ export function SearchBar(){
     return (
         <>
             <imput>
-                <FaSearch onClick={searchGame(e.target.value)}/>
+                {/* <FaSearch onClick={searchGame(e.target.value)}/> */}
             </imput>
         </>
     )

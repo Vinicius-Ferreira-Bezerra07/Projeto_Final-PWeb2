@@ -1,7 +1,16 @@
 .listDeals{
+    padding: 0%;
     height: 100%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    flex-direction: column;
+}
+
+.listD{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
 }

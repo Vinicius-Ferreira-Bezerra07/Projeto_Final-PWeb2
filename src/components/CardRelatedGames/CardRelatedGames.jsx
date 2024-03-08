@@ -2,19 +2,23 @@ import { useEffect, useState } from "react";
 import { getGamesByName } from "../../service/RequestDeals";
 import { UnidCardRelated } from "../UnidCardRelated/UnidCardRelated";
 import { ClipLoader } from "react-spinners";
+import "./cardRelatedGames.css"
 
 export function CardRelatedGames({ title }){
     const [games, setGames] = useState([])
     
     useEffect(()=>{
-        getGamesByName(title)
+        const meio = title.length/2.5
+        const halfName = title.substring(0,meio)
+        console.log(halfName);
+        
+        getGamesByName(halfName)
             .then(response => setGames(response))
     },[])
 
-    console.log(games);
     
     return(
-        <div>
+        <div className="relatedGames">
             { games.length > 0 ?
                 games.map((x) => (
                     <UnidCardRelated key={games.gameID} game={x}/>

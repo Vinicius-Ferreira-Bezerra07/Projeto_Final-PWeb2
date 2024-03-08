@@ -1,8 +1,15 @@
+import { CircleLoader } from "react-spinners";
+
 export function UnidCardRelated({ game }){
-    console.log(game)
+    // console.log(game)
     return(
-        <>
-            <h1>teste</h1>
-        </>
+        <div className="">
+            {game.steamAppID != null ?
+                <>
+                    <h1>{game.external}</h1>
+                    <img src={game.thumb}/>,
+                </>
+            : <></>}
+        </div>
     )
 }

@@ -3,6 +3,7 @@ import { getDeals } from "../../service/RequestDeals"
 import { ClipLoader } from "react-spinners"
 import CardDeals from "../../components/cardDeals/CardDeals"
 import "./listDeals.css"
+import { NavBar } from "../../components/NavBar/NavBar"
 
 export default function ListDeals() {
     const [upperPrice, setUpperPrice] = useState(15)
@@ -20,11 +21,14 @@ export default function ListDeals() {
 
     return (
         <div className="listDeals">
-            {games.length > 0 ?
+            <NavBar/>
+            <div className="listD">
+                {games.length > 0 ?
                 games.map((deals) => (
                     <CardDeals key={games.steamAppID} deals={deals}/>
                 ))
                 : <ClipLoader />}
+            </div>
         </div>
     )
 }
